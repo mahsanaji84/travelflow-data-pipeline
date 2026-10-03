@@ -1,0 +1,50 @@
+name: TravelFlow CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  validate:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Upgrade pip
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Install Python dependencies
+        run: |
+          pip install pandas cassandra-driver kafka-python pyspark
+
+      - name: Check Python syntax
+        run: |
+          python -m py_compile simulator/generate_events.py
+          python -m py_compile spark/streaming_consumer.py
+          python -m py_compile spark/streaming_to_cassandra.py
+          python -m py_compile airflow/dags/travelflow_batch_dag.py
+
+      - name: Validate Docker Compose
+        run: |
+          docker compose config
+
+      - name: Build Airflow image
+        run: |
+          docker compose build airflow-init

@@ -1,0 +1,21 @@
+reservation_id,user_id,destination,package_id,amount,status,reservation_date
+R001,U1001,Paris,PKG101,1500,completed,2026-09-01
+R002,U1002,Montreal,PKG102,800,completed,2026-09-01
+R003,U1003,Rome,PKG103,1200,abandoned,2026-09-02
+R004,U1004,Cancun,PKG104,2100,completed,2026-09-02
+R005,U1005,New York,PKG105,1800,completed,2026-09-03
+R006,U1006,Paris,PKG106,1350,abandoned,2026-09-03
+R007,U1007,Montreal,PKG107,950,completed,2026-09-04
+R008,U1008,Rome,PKG108,1450,completed,2026-09-04
+R009,U1009,Cancun,PKG109,2250,abandoned,2026-09-05
+R010,U1010,New York,PKG110,1750,completed,2026-09-05
+R011,U1011,Paris,PKG111,1650,completed,2026-09-06
+R012,U1012,Montreal,PKG112,900,abandoned,2026-09-06
+R013,U1013,Rome,PKG113,1300,completed,2026-09-07
+R014,U1014,Cancun,PKG114,2400,completed,2026-09-07
+R015,U1015,New York,PKG115,1900,abandoned,2026-09-08
+R016,U1016,Paris,PKG116,1550,completed,2026-09-08
+R017,U1017,Montreal,PKG117,850,completed,2026-09-09
+R018,U1018,Rome,PKG118,1250,completed,2026-09-09
+R019,U1019,Cancun,PKG119,2300,completed,2026-09-10
+R020,U1020,New York,PKG120,1850,completed,2026-09-10
