@@ -32,7 +32,30 @@
 <hr>
 
 <h2>Architecture</h2>
+flowchart LR
 
+    subgraph RT["Real-time pipeline"]
+        SIM["Python Simulator"]
+        KAFKA["Apache Kafka"]
+        SPARK["Spark Structured Streaming"]
+        SIM -->|"JSON events"| KAFKA
+        KAFKA --> SPARK
+    end
+
+    subgraph BATCH["Batch pipeline"]
+        CSV["reservations.csv"]
+        AIRFLOW["Apache Airflow"]
+        PANDAS["Python / Pandas"]
+        CSV --> AIRFLOW
+        AIRFLOW --> PANDAS
+    end
+
+    CASSANDRA[("Apache Cassandra")]
+    POSTGRES[("PostgreSQL")]
+
+    SPARK -->|"Aggregated statistics"| CASSANDRA
+    PANDAS -->|"Batch statistics"| CASSANDRA
+    AIRFLOW <-->|"Metadata"| POSTGRES
 <h3>Real-time pipeline</h3>
 
 <pre>
