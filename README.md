@@ -32,6 +32,8 @@
 <hr>
 
 <h2>Architecture</h2>
+
+```mermaid
 flowchart LR
 
     subgraph RT["Real-time pipeline"]
@@ -56,6 +58,7 @@ flowchart LR
     SPARK -->|"Aggregated statistics"| CASSANDRA
     PANDAS -->|"Batch statistics"| CASSANDRA
     AIRFLOW <-->|"Metadata"| POSTGRES
+```
 <h3>Real-time pipeline</h3>
 
 <pre>
